@@ -1,0 +1,28 @@
+* {
+    font-family: sans-serif;
+    margin: 2px;
+}
+
+h1 {
+    background-color: black;
+    color:whitesmoke;
+    text-align: left;
+}
+
+h2 {
+    background-color: purple;
+    color: whitesmoke;
+    text-align: center;
+    font-style: italic;
+}
+
+h3 {
+    background-color: turquoise;
+    color: blueviolet;
+    text-decoration: underline;
+    text-align: right;
+}
+
+h1 span {
+    color: aqua;
+}

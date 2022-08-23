@@ -1,0 +1,33 @@
+* {
+padding: 10px;
+}
+
+.search {
+    width: 100px;
+    border-radius: 40px;
+    color: turquoise;
+    background-color: whitesmoke;
+    border: 3px solid turquoise;
+    margin: 10px;
+    font-weight: bold;
+}
+
+.mas {
+    background-color: turquoise;
+    color: whitesmoke;
+    border-radius: 50% ;
+    border: 3px solid transparent;
+    height: 40px;
+    width: 40px;
+    font-weight: bold;
+}
+
+.account {
+    background-color: blue;
+    color: beige;
+    margin: 10px;
+    height: 55px;
+    box-shadow: 10px 5px 5px black;
+    font-weight: bold;
+    border: 2px solid black;
+}

@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+
+body {
+    align-content: center;
+}
+h1 {
+    font-family: 'Aboreto', cursive;
+    margin: 20px;
+    padding: 10px;
+    
+}
+
+.bloqueuno {
+    width: 450px;
+    background-color: #1F4690;
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.gatos {
+    width: 25%;
+    height: 25%;
+    padding: 10px;
+    margin: 5px;
+}
+
+.bloquedos {
+    width: 450px;
+    background-color: #C2DED1;
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.bloquetres {
+    width: 450px;
+    background-color: #81CACF;
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.row {
+    display: flexbox;
+    text-align: -webkit-center ;
+}

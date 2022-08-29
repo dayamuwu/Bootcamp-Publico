@@ -1,0 +1,199 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.container {
+    margin: auto 15%;
+    
+}
+
+h1 {
+    background-color: black;
+    color: beige;
+    height: 75px;
+    width: 970px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.tarjeta {
+    height: 155px;
+    width: 300px;
+    background-color: white;
+    border: 1px solid gainsboro;
+    margin:  20px;
+    margin-top: 5%;
+}
+
+.text {
+    font-size:small;
+    font-family: system-ui;
+}
+
+.boton {
+    width: 90px;
+    height: 23px;
+    background-color: aqua;
+    color: white;
+    border: aquamarine;
+    font-weight: bold;
+}
+
+.barra1 {
+    height: 70px;
+    width: 400px;
+    background-color:rgb(12, 183, 166);
+    border: 2px solid gainsboro;
+}
+
+.barra2 {
+    height: 130px;
+    width: 400px;
+    background-color: white;
+    border: 2px solid gainsboro;
+}
+
+.user {
+    height: 65px;
+    width: 65px;
+    margin-top: 29px;
+    margin-left: 30px;
+    position: absolute;
+}
+
+.nombre {
+    margin-top: 18px;
+    margin-left: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: x-large;
+    position: absolute;
+}
+
+.ubi {
+    margin-top: 20px;
+    margin-left: 30px;
+    font-family:cursive ;
+}
+
+
+.icono {
+    margin-top: 25px;
+    height: 20px;
+    width: 15px;
+}
+
+.texto {
+    margin-left: 30px;
+    font-family: cursive;
+    color: black;
+}
+
+.edit {
+    height: 10px;
+    width: 10px;
+    margin-left: 30px;
+    margin-top: 9px;
+}
+
+.bloqueeduca {
+    height: 140px;
+    width: 390px;
+    background-color: white;
+    border: 3px solid gainsboro;
+    margin-top: 80px;
+    margin-left: 3%;
+}
+
+h2 {
+    margin-left: 20px;
+    margin-top: 8px;
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+.edu {
+    background-color: black;
+    color: white;
+    height: 40px;
+    width: 390px;
+    font-size: x-large;
+    margin-top: initial;
+    text-align: center;
+    font-weight: bold;
+    font-style: oblique;
+}
+
+.edu1 {
+    margin-left: 30px;
+    color: gray;
+    font-style: oblique;
+}
+
+.bloqueconnec {
+    height: 120px;
+    width: 245px;
+    background-color: white;
+    border: 3px solid gainsboro;
+    float: right;
+    margin-right: 22%;
+    margin-top: -15%
+}
+
+.bloqueyour {
+    height: 190px;
+    width: 280px;
+    background-color: white;
+    border: 3px solid gainsboro;
+    float: right;
+    margin-right: 20%;
+    margin-top: -15%;
+}    
+
+.ima {
+    margin-top: 10px;
+    height: 15px;
+    width: 15px;
+    position: initial
+}
+
+.lista {
+    height: 15%;
+    margin-left: 10%;
+    padding: 0.8%;
+}   
+
+h3 {
+    color: white;
+    background-color: black;
+    height: 40px;
+    width: 100%;
+    margin-top: initial;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+}
+    
+
+.ulti {
+    border-top: 2px solid gainsboro;
+    height: 8%;
+    width: 100%;
+}
+
+.ima1 {
+    height: 20px;
+    width: 20px;
+    margin-right: 5%;
+}
+
+.btn {
+    border-radius: 50%;
+    background-color: #F0F2B6;
+    font-family: emoji;
+    font-size: small;
+    color: black;
+}

@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+
+* {
+    padding: 0px;
+    margin: 5px;
+    font-family: 'Comic Neue'
+
+}
+
+.contene {
+    height: 75px;
+    width: 100%;
+    background-color: #E0DECA;
+    color: black;
+}
+
+.caja1 {
+    height: 160px;
+    width: 350px;
+    border: 1px solid black;
+    margin-top: 2%;
+    display: flex;
+    align-items: center;
+}
+
+.caja2 {
+    height: 160px;
+    width: 350px;
+    border: 1px solid black;
+    margin-top: 2%;
+    display: flex;
+    align-items: center
+}
+
+.caja3 {
+    height: 90px;
+    width: 160px;
+    border: 1px solid black;
+    float: right;
+    margin-top: -25%;
+    margin-right: 45%;
+}
+
+
+#btn1 {
+    background-color: #1CD6CE;
+    color: beige;
+    width: 70px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 0px 0px black;
+}
+
+.btn2 {
+    background-color: #FEC260;
+    box-shadow: 2px 2px 0px 0px black;
+    width: 75px;
+    height: 25px;
+}
+
+#btn3 {
+    background-color: #5BB318;
+    box-shadow: 2px 2px 0px 0px black;
+    display: block;
+    margin-inline: auto;
+    width: 90%;
+}
+
+h1 {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+h2 {
+    display: inline-block;
+    font-size: xx-large;
+}
+
+h3 {
+    font-family: comic sans-serif
+}
+
+.list {
+    list-style: none;
+}
+
+

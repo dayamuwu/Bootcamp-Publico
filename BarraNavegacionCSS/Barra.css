@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.nav {
+    display: flex;
+    align-items: center;
+    align-content: space-between;
+    justify-content: space-evenly;
+    font-family: 'Roboto', sans-serif;
+    background-image: linear-gradient(5deg, aquamarine, salmon);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    width: 35%;
+    padding-inline-start: 15%;
+    justify-content: space-between;
+}
+
+.btn {    background-color: aquamarine;
+    color: saddlebrown;
+    box-shadow: 4px 4px 2px 0px black;
+    font-weight: bolder;
+}
+
+h1 {
+    color: darkblue;
+}

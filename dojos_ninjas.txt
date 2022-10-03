@@ -1,0 +1,94 @@
+show databases;
+use dojos_y_ninjas_02;   
+
+show tables;
+
+select * from dojos;    //Estas consultas las hago para revisar las tablas 
+select * from ninjas;
+
+
+---CREAR 3 DOJOS
+
+INSERT INTO dojos (nombre, created_at, update_at)
+VALUES ('Chihiro', '2022-09-28', '2022-09-29')
+
+INSERT INTO dojos (nombre, created_at, update_at)
+VALUES ('Roger', '2022-09-28', '2022-09-29')
+
+INSERT INTO dojos (nombre, created_at, update_at)
+VALUES ('Chester', '2022-09-28', '2022-09-29')
+
+------BORRAR LOS DOJOS 
+
+DELETE FROM dojos WHERE id=1;
+
+select id from dojos where nombre='Roger';
+DELETE FROM dojos WHERE id=(select id from dojos where nombre='Roger');
+
+DELETE FROM dojos WHERE id=3;
+
+-----------
+
+------CREAR TRES DOJOS NUEVOS 
+INSERT INTO dojos (nombre, created_at, update_at)
+VALUES ('Roruro', '2022-09-28', '2022-09-29');
+
+INSERT INTO dojos (nombre, created_at, update_at)
+VALUES ('Genshi', '2022-09-28', '2022-09-29');
+
+INSERT INTO dojos (nombre, created_at, update_at)
+VALUES ('Akane', '2022-09-28', '2022-09-29');
+
+-----------CREAR TRES NINJAS QUE PERTENEZCAN AL PRIMER DOJO 
+
+INSERT INTO ninjas (nombre, apellido, edad, created_at, update_at, dojo_id)
+VALUES ('Dani', 'Parra', 22, '2022-09-28', '2022-09-29', (select id from dojos where nombre='Roruro'));
+
+INSERT INTO ninjas (nombre, apellido, edad, created_at, update_at, dojo_id)
+VALUES ('Gary', 'Friz', 25 ,'2022-09-28', '2022-09-29', 4); 
+
+INSERT INTO ninjas (nombre, apellido, edad, created_at, update_at, dojo_id)
+VALUES ('Kary', 'Lua', 28 ,'2022-09-28', '2022-09-29', 4); 
+
+-----------CREAR TRES NINJAS QUE PERTENEZCAN AL SEGUNDO DOJO 
+
+INSERT INTO ninjas (nombre, apellido, edad, created_at, update_at, dojo_id)
+VALUES ('Ranma', 'Saotome', 26, '2022-09-28', '2022-09-29', 5);
+
+INSERT INTO ninjas (nombre, apellido, edad, created_at, update_at, dojo_id)
+VALUES ('Pierre', 'Grez', 29 ,'2022-09-28', '2022-09-29', (select id from dojos where nombre='Genshi')); 
+
+INSERT INTO ninjas (nombre, apellido, edad, created_at, update_at, dojo_id)
+VALUES ('Garu', 'Tendo', 30 ,'2022-09-28', '2022-09-29', 5); 
+
+
+-----------CREAR TRES NINJAS QUE PERTENEZCAN AL TERCER DOJO 
+
+INSERT INTO ninjas (nombre, apellido, edad, created_at, update_at, dojo_id)
+VALUES ('Fuu', 'Miura', 20, '2022-09-28', '2022-09-29', 6);
+
+INSERT INTO ninjas (nombre, apellido, edad, created_at, update_at, dojo_id)
+VALUES ('Jin', 'Blum', 23 ,'2022-09-28', '2022-09-29', (select id from dojos where nombre='Akane')); 
+
+INSERT INTO ninjas (nombre, apellido, edad, created_at, update_at, dojo_id)
+VALUES ('Mugen', 'Seki', 19 ,'2022-09-28', '2022-09-29', 6); 
+
+----RECUPERA TODOS LOS NINJAS DEL PRIMER DOJO
+
+SELECT * 
+FROM ninjas 
+WHERE dojo_id = 4; 
+
+
+----RECUPERA TODOS LOS NINJAS DEL ULTIMO DOJO
+
+SELECT * 
+FROM ninjas 
+WHERE dojo_id = 6; 
+
+----RECUPERA EL DOJO DEL ULTIMO NINJA 
+
+SELECT dojos.nombre 
+FROM dojos, ninjas
+WHERE ninjas.id = 9
+INNER JOIN dojos ON ninjas.dojo_id=dojos.id

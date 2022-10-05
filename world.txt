@@ -1,0 +1,64 @@
+SHOW tables;
+
+SELECT * FROM countries;
+SELECT * FROM languages;
+SELECT * FROM cities;
+
+----Primera consulta
+
+SELECT countries.name, languages.language, languages.percentage 
+FROM languages
+INNER JOIN countries ON languages.country_id=countries.id
+WHERE languages.language='Slovene'
+ORDER BY percentage DESC;
+
+----Segunda consulta
+
+SELECT countries.name, COUNT(cities.name) as cities
+FROM cities
+INNER JOIN countries ON cities.country_id=countries.id
+GROUP BY countries.name
+ORDER BY cities DESC;
+
+----Tercera consulta
+
+SELECT cities.name, cities.population, countries.id
+FROM cities
+INNER JOIN countries ON cities.country_id=countries.id
+WHERE countries.id=136 AND cities.population>500000
+ORDER BY population DESC;
+
+-----Cuarta consulta 
+
+SELECT countries.name, languages.language, languages.percentage
+FROM languages
+INNER JOIN countries ON languages.country_id=countries.id
+WHERE languages.percentage>89 
+ORDER BY percentage DESC;
+
+-----Quinta consulta 
+
+SELECT countries.name, cities.population, countries.surface
+FROM cities
+INNER JOIN countries ON cities.country_id=countries.id
+WHERE countries.surface_area<501 AND cities.population>100000;
+
+-----Sexta consulta
+
+SELECT countries.name, countries.government_form, countries.capital, countries.life_expectancy
+FROM countries
+WHERE countries.government_form=Constitutional Monarchy AND countries.capital>200 AND countries.life_expectancy>75;
+
+-----Septima consulta
+
+SELECT countries.name, cities.name, cities.district, cities.population
+FROM cities
+INNER JOIN countries ON cities.country_id=countries.id
+WHERE cities.district='Buenos Aires' AND cities.population>500000;
+
+-----Octava consulta
+
+SELECT countries.region, COUNT(countries.id) as countrie
+FROM countries
+GROUP BY countries.region
+ORDER BY countrie DESC;

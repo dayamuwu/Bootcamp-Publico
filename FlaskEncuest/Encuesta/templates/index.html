@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Encuesta Dojo</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <link href="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+    </head>
+
+    <body>
+        <form action='/proceso', method="post">
+            <div>
+                <legend>Encuesta Dojo</legend>
+            </div>
+
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Tu nombre</label>
+                <input type="text" id="nombre" class="form-control" name="nombre" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="ubicacion" class="form-label">Ubicación Dojo</label>
+                <select id="ubicacion" class="form-select" name="ubicacion" required>
+                    <option>Santiago</option>
+                    <option>Valparaiso</option>
+                    <option>Viña del mar</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="lenguaje" class="form-label">Lenguaje favorito</label>
+                <select id="lenguaje" class="form-select" name="lenguaje" required>
+                    <option>Python</option>
+                    <option>C++</option>
+                    <option>Java</option>
+                </select>
+            </div>
+
+
+            <div class="mb-3">
+                <label for="texto" class="form-label">Comentarios (opcional)</label>
+                <textarea class="form-control" id="comentario" name="comentario" rows="3" required></textarea>
+            </div>
+
+            <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-3">Enviar</button>
+            </div>
+        </form>
+    </body>
+</html>

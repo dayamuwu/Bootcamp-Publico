@@ -17,14 +17,14 @@ class Usuarios:
 
     @classmethod
     def guardar_usuario(cls,data):
-        query="INSERT INTO usuarios(nombre,apellido,correo,contrasena) VALUES(%(nombre)s,%(apellido)s,%(correo)s,%(contrasena)s);"
-        return connectToMySQL('Tv').query_db(query,data)
+        query="INSERT INTO usuarios(nombre,apellido,correo,contraseña) VALUES(%(nombre)s,%(apellido)s,%(correo)s,%(contrasena)s);"
+        return connectToMySQL('Tv_db').query_db(query,data)
 
 
     @classmethod
     def get_all(cls):
         query = "SELECT * FROM usuarios;"
-        results = connectToMySQL('Tv').query_db(query)
+        results = connectToMySQL('Tv_db').query_db(query)
         usuarios = []
         for usu in results:
             usuarios.appen( cls(usu))
@@ -34,13 +34,13 @@ class Usuarios:
     @classmethod
     def get_un_usuario(cls,data):
         query = "SELECT * FROM usuarios WHERE id=%(id)s;"
-        results = connectToMySQL('Tv').query_db(query,data)
+        results = connectToMySQL('Tv_db').query_db(query,data)
         return cls(results[0])
 
     @classmethod
     def get_by_correo(cls,data):
         query = "SELECT * FROM usuarios WHERE correo = %(correo)s;"
-        result = connectToMySQL('Tv').query_db(query,data)
+        result = connectToMySQL('Tv_db').query_db(query,data)
         if len(result) < 1:
             return False
         return cls(result[0])
@@ -48,7 +48,7 @@ class Usuarios:
     @classmethod
     def destruir_usuario(cls,data):
         query = "DELETE FROM users WHERE id = %(id)s;"
-        return connectToMySQL('Tv').query_db(query,data)
+        return connectToMySQL('Tv_db').query_db(query,data)
 
 
     @staticmethod
@@ -64,7 +64,7 @@ class Usuarios:
             flash("Apellido debe contener al menos 3 caracteres")
             is_valid = False
         if len(registro['contrasena']) < 2:
-            flash("contrasena debe tener al menos 4 caracteres")
+            flash("contrasena debe tener al menos 2 caracteres")
             is_valid = False
         if not EMAIL_REGEX.match(correo['correo']):
             flash("Correo no valido")

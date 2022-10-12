@@ -13,6 +13,13 @@
     <body>
     <div>
         <form action='/crear', method="post">
+            {% with messages = get_flashed_messages() %}     <!-- declara una variable llamada mensajes -->
+            {% if messages %}                               <!-- comprobar si hay algún mensaje -->
+                {% for message in messages %}            <!-- recorrer los mensajes -->
+                    <p>{{message}}</p>                   <!-- muestra cada mensaje en una etiqueta de párrafo -->
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
             <input type="hidden" name="formu" value="usuarios">
             <div>
                 <legend>Programas de TV!</legend>

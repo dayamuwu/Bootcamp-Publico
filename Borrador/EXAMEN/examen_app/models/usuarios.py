@@ -10,7 +10,7 @@ class Usuarios:
         self.nombre = data ['nombre']
         self.apellido = data ['apellido']
         self.correo = data ['correo']
-        self.contrasena = data ['contrasena']
+        self.contrasena = data ['contraseña']
         self.created_at = data ['created_at']
         self.update_at = data ['update_at']
 
@@ -18,13 +18,13 @@ class Usuarios:
     @classmethod
     def guardar_usuario(cls,data):
         query="INSERT INTO usuarios(nombre,apellido,correo,contraseña) VALUES(%(nombre)s,%(apellido)s,%(correo)s,%(contrasena)s);"
-        return connectToMySQL('Tv_db').query_db(query,data)
+        return connectToMySQL('Tv_db2').query_db(query,data)
 
 
     @classmethod
     def get_all(cls):
         query = "SELECT * FROM usuarios;"
-        results = connectToMySQL('Tv_db').query_db(query)
+        results = connectToMySQL('Tv_db2').query_db(query)
         usuarios = []
         for usu in results:
             usuarios.appen( cls(usu))
@@ -34,13 +34,13 @@ class Usuarios:
     @classmethod
     def get_un_usuario(cls,data):
         query = "SELECT * FROM usuarios WHERE id=%(id)s;"
-        results = connectToMySQL('Tv_db').query_db(query,data)
+        results = connectToMySQL('Tv_db2').query_db(query,data)
         return cls(results[0])
 
     @classmethod
     def get_by_correo(cls,data):
         query = "SELECT * FROM usuarios WHERE correo = %(correo)s;"
-        result = connectToMySQL('Tv_db').query_db(query,data)
+        result = connectToMySQL('Tv_db2').query_db(query,data)
         if len(result) < 1:
             return False
         return cls(result[0])
@@ -48,7 +48,7 @@ class Usuarios:
     @classmethod
     def destruir_usuario(cls,data):
         query = "DELETE FROM users WHERE id = %(id)s;"
-        return connectToMySQL('Tv_db').query_db(query,data)
+        return connectToMySQL('Tv_db2').query_db(query,data)
 
 
     @staticmethod

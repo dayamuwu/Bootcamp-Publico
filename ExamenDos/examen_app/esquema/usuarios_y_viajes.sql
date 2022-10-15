@@ -38,6 +38,7 @@ CREATE TABLE IF NOT EXISTS `usuarios_y_viajes_db`.`viajes` (
   `inicio_viaje` DATE NOT NULL,
   `fin_viaje` DATE NOT NULL,
   `descripcion` VARCHAR(200) NOT NULL,
+  `creado_por` INT NOT NULL,
   `created_at` DATETIME NOT NULL DEFAULT NOW(),
   `updated_at` DATETIME NOT NULL DEFAULT NOW(),
   PRIMARY KEY (`id`))

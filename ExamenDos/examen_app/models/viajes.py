@@ -7,8 +7,9 @@ class Viajes:
         self.id = data['id']
         self.plan = data['plan']
         self.inicio_viaje = data['inicio_viaje']
-        self.fin_viaje = data['fin viaje']
+        self.fin_viaje = data['fin_viaje']
         self.descripcion = data['descripcion']
+        self.creado_por = data['creado_por']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at'] 
         self.sobre_usuarios=[]
@@ -16,7 +17,7 @@ class Viajes:
 
     @classmethod
     def guardar_viaje(cls,data):
-        query="INSERT INTO viajes(plan,inicio_viaje,fin_viaje,descripcion,usuarios_id) VALUES(%(plan)s,%(inicio_viaje)s,%(fin_viaje)s,%(descripcion)s,%(usuario_id)s);"
+        query="INSERT INTO viajes(plan,inicio_viaje,fin_viaje,descripcion,creado_por) VALUES(%(plan)s,%(inicio_viaje)s,%(fin_viaje)s,%(descripcion)s,%(usuario_id)s);"
         return connectToMySQL('usuarios_y_viajes_db').query_db(query,data)
 
     @classmethod
@@ -45,15 +46,24 @@ class Viajes:
         return connectToMySQL('usuarios_y_viajes_db').query_db(query,data)
 
     @classmethod
-    def get_usuario_viaje(cls):
-        query = "SELECT * FROM viajes as r JOIN usuarios as u ON r.usuarios_id = u.id;"
-        results = connectToMySQL('usuarios_y_viajes_db').query_db(query)
-        lista_usuario=[]
+    def get_usuario_viaje(cls,data):
+        query = "SELECT * FROM viajes JOIN usuarios_y_viajes ON usuarios_y_viajes.viajes_id = viajes.id JOIN usuarios ON usuarios_y_viajes.usuarios_id = usuarios.id WHERE usuarios.id = %(id)s;"
+        results = connectToMySQL('usuarios_y_viajes_db').query_db(query,data)
+        lista_viajes=[]
         for row_from_db in results:
             obj_viaje=cls(row_from_db)
             obj_viaje.sobre_usuarios.append(Usuarios(row_from_db))
-            lista_usuario.append(obj_viaje)
-        return lista_usuario
+            lista_viajes.append(obj_viaje)      
+        return lista_viajes
+
+    @classmethod
+    def get_viajes_joined(cls,data):
+        query = "select viajes_id from usuarios_y_viajes where usuarios_id = %(id)s;"
+        results = connectToMySQL('usuarios_y_viajes_db').query_db(query,data)
+        id_via = []
+        for via_for in results:
+            id_via.append( cls(via_for) )
+        return id_via
 
     @classmethod
     def get_usuario_un_viaje(cls,data):

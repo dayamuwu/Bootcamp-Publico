@@ -30,13 +30,13 @@ def crear():
         session['usuario_id'] = usuario_id
         flash("Usuario creado correctamente, ahora puedes logearte")
         return redirect('/')
-    elif valor == "Viajes":
+    elif valor == "viajes":
         data = {
             "plan":request.form["plan"],
             "inicio_viaje":request.form["inicio_viaje"],
             "fin_viaje":request.form["fin_viaje"],
             "descripcion":request.form["descripcion"],
-            "usuario_id":session['usuario_id'],
+            "usuarios_id":session['usuarios_id'],
             }
         if not Viajes.validar_viaje(request.form):
             return redirect("/ver")
@@ -57,47 +57,48 @@ def login():
     if not bcrypt.check_password_hash(user_in_db.contrasena, request.form['contrasena']):
         flash("Correo/Contraseña erroneos")
         return redirect('/')
-    session['usuario_id'] = user_in_db.id
+    session['usuarios_id'] = user_in_db.id
     return redirect("/ver")
 
 @app.route('/ver')
 def ver():
-    if "usuario_id" not in session:
+    if "usuarios_id" not in session:
         return redirect("/")
-    id=session['usuario_id']
+    id=session['usuarios_id']
     data={
         "id":id
     }
     un_usuario=Usuarios.get_un_usuario(data)
-    todos_viajes=Viajes.get_usuario_viaje()
-    return render_template("ver.html",todos_viajes=todos_viajes,un_usuario=un_usuario)
+    todos_viajes=Viajes.get_usuario_viaje(data)
+    id_viajes=Viajes.get_viajes_joined(data)
+    return render_template("/ver.html", un_usuario=un_usuario, todos_viajes=todos_viajes, id_viajes=id_viajes)
 
 
-@app.route('/crearprograma')
-def nuevopro():
-    if "usuario_id" not in session:
+@app.route('/crear_viaje')
+def nuevoviaj():
+    if "usuarios_id" not in session:
         return redirect("/")
-    id=session['usuario_id']
+    id=session['usuarios_id']
     data={
         "id":id
     }
     un_usuario=Usuarios.get_un_usuario(data)
     now=datetime.now().strftime('%Y-%m-%d')
-    return render_template("/crearprograma.html",un_usuario=un_usuario,now=now)
+    return render_template("/crear_viaje.html",un_usuario=un_usuario,now=now)
 
 
-@app.route('/ver/<int:id>')
-def mostrar(id):
-    if "usuario_id" not in session:
-        return redirect("/")
-    iduser=session['usuario_id']
-    newdata={"id":iduser}
-    data={
-        "id":id
-    }
-    un_usuario=Usuarios.get_un_usuario(newdata)
-    todos_viajes=Viajes.get_usuario_un_viajes(data)
-    return render_template("ver.html",todos_viajes=todos_viajes,un_usuario=un_usuario)
+#@app.route('/ver/<int:id>')
+#def mostrar(id):
+#    if "usuario_id" not in session:
+#        return redirect("/")
+#    iduser=session['usuario_id']
+#    newdata={"id":iduser}
+#    data={
+#        "id":id
+#    }
+#    un_usuario=Usuarios.get_un_usuario(newdata)
+#    todos_viajes=Viajes.get_usuario_un_viajes(data)
+#    return render_template("ver.html",todos_viajes=todos_viajes,un_usuario=un_usuario)
 
 
 #@app.route('/ver/editar/<int:id>')

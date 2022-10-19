@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Crear cita</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <link href="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+    </head>
+
+    <body>
+    <div class="container">
+        <form action='/editar/{{una_cita.id}}', method="post">
+            <input type="hidden" name="formu" value="citas">
+            <div>
+                <legend> Edita tu cita</legend>
+            </div>
+
+            <div>
+                <legend >Editar tarea</legend>
+            </div>
+
+            <div class="mb-3">
+                <label for="tareas" class="form-label">Tarea</label>
+                <input type="text" id="tareas" class="form-control" name="tareas" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="fecha" class="form-label">Fecha</label>
+                <input type="date" id="fecha" class="date" name="fecha" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="estado" class="textarea">Estado</label>
+                <select name="estado" id="estado" required>
+                    <option value="" disabled selected hidden>--Selecciona una opción--</option>
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="Perdido">Perdido</option>
+                    <option value="Listo">Listo</option>
+                </select>
+            </div>
+
+            <input type="hidden" value="{{session['usuario_id']}}" name="usuario_id">
+
+
+            <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-3">Añadir</button>
+            </div>
+            {% with messages = get_flashed_messages() %}     <!-- declara una variable llamada mensajes -->
+            {% if messages %}                               <!-- comprobar si hay algún mensaje -->
+                {% for message in messages %}            <!-- recorrer los mensajes -->
+                    <p>{{message}}</p>                   <!-- muestra cada mensaje en una etiqueta de párrafo -->
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </form>
+    </div>

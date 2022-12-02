@@ -1,0 +1,42 @@
+*{
+    font-family: monospace;
+}
+
+#calculator {
+    background-color: lightpink;
+    width: 100px;
+    position: relative;
+    padding: 15px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#equals {
+    width: 100%;
+    border-radius: 15px;
+    background-color: lightskyblue;
+    color: azure;
+    border: violet;
+}
+
+button {
+    border-radius: 50%;
+    background-color: lightskyblue;
+    color: azure;
+    border: lightslategray;
+    width: 20px;
+    height: 20px;
+}
+
+#display {
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.operator {
+    background-color: darkgoldenrod;
+}
